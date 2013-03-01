@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="MinimalMVVM.View.ConverterControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ViewModel="clr-namespace:MinimalMVVM.ViewModel" mc:Ignorable="d" 
+             d:DesignHeight="336"
+             d:DesignWidth="300"
+             d:DataContext="{d:DesignInstance ViewModel:Presenter}">
+
+    <UserControl.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding ConvertTextCommand}"/>
+    </UserControl.InputBindings>
+    
+    <StackPanel Height="336">
+        <Label Foreground="Blue" Margin="5,5,5,0">Text To Convert</Label>
+        <TextBox Text="{Binding SomeText, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+        <Label Foreground="Blue" Margin="5,5,5,0">History</Label>
+        <ListBox ItemsSource="{Binding History}" Height="200" Margin="5"/>
+        <Button Command="{Binding ConvertTextCommand}" Margin="5">Convert</Button>
+    </StackPanel>
+    
+</UserControl>
