@@ -23,7 +23,7 @@ namespace MinimalMVVM.ViewModel
         }
 
 #pragma warning disable 67
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler CanExecuteChanged { add { } remove { } }
 #pragma warning restore 67
     }
 }
