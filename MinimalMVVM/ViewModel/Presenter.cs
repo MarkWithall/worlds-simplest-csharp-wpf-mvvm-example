@@ -34,8 +34,9 @@ namespace MinimalMVVM.ViewModel
 
         private void ConvertText()
         {
+            if (string.IsNullOrWhiteSpace(SomeText)) return;
             AddToHistory(_textConverter.ConvertText(SomeText));
-            SomeText = String.Empty;
+            SomeText = string.Empty;
         }
 
         private void AddToHistory(string item)
