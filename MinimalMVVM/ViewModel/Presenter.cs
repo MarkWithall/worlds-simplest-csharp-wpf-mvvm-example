@@ -24,14 +24,12 @@ namespace MinimalMVVM.ViewModel
 
         public IEnumerable<string> History => _history;
 
-        public ICommand ConvertTextCommand => new DelegateCommand(ConvertText);
-
-        private void ConvertText()
+        public ICommand ConvertTextCommand => new DelegateCommand(() =>
         {
             if (string.IsNullOrWhiteSpace(SomeText)) return;
             AddToHistory(_textConverter.ConvertText(SomeText));
             SomeText = string.Empty;
-        }
+        });
 
         private void AddToHistory(string item)
         {
