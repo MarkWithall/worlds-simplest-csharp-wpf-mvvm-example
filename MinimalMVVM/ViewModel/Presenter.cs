@@ -22,15 +22,9 @@ namespace MinimalMVVM.ViewModel
             }
         }
 
-        public IEnumerable<string> History
-        {
-            get { return _history; }
-        }
+        public IEnumerable<string> History => _history;
 
-        public ICommand ConvertTextCommand
-        {
-            get { return new DelegateCommand(ConvertText); }
-        }
+        public ICommand ConvertTextCommand => new DelegateCommand(ConvertText);
 
         private void ConvertText()
         {
