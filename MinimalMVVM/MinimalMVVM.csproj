@@ -63,9 +63,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\TextConverter.cs" />
-    <Compile Include="ViewModel\DelegateCommand.cs" />
-    <Compile Include="ViewModel\ObservableObject.cs" />
-    <Compile Include="ViewModel\Presenter.cs" />
+    <Compile Include="ViewModels\DelegateCommand.cs" />
+    <Compile Include="ViewModels\ObservableObject.cs" />
+    <Compile Include="ViewModels\Presenter.cs" />
     <Compile Include="Views\ConverterControl.xaml.cs">
       <DependentUpon>ConverterControl.xaml</DependentUpon>
     </Compile>

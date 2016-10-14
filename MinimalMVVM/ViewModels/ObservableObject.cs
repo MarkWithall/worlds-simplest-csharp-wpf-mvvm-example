@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace MinimalMVVM.ViewModel
+namespace MinimalMVVM.ViewModels
 {
     public class ObservableObject : INotifyPropertyChanged
     {
