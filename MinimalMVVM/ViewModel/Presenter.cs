@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
-using MinimalMVVM.Model;
+using MinimalMVVM.Models;
 
 namespace MinimalMVVM.ViewModel
 {

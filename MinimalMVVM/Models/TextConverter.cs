@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
-namespace MinimalMVVM.Model
+namespace MinimalMVVM.Models
 {
     public class TextConverter
     {
