@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MinimalMVVM.Model
+namespace MinimalMVVM.Models
 {
     public class TextConverter
     {
