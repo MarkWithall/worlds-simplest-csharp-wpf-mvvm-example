@@ -1,4 +1,4 @@
-namespace MinimalMVVM.View
+namespace MinimalMVVM.Views
 {
     public partial class ConvertWindow
     {
