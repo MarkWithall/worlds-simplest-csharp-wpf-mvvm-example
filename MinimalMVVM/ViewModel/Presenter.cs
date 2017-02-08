@@ -18,7 +18,7 @@ namespace MinimalMVVM.ViewModel
             set
             {
                 _someText = value;
-                RaisePropertyChangedEvent("SomeText");
+                RaisePropertyChangedEvent(nameof(SomeText));
             }
         }
 
