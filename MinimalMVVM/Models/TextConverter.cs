@@ -11,9 +11,6 @@ namespace MinimalMVVM.Models
             _convertion = convertion;
         }
 
-        public string ConvertText(string inputText)
-        {
-            return _convertion(inputText);
-        }
+        public string ConvertText(string inputText) => _convertion(inputText);
     }
 }
