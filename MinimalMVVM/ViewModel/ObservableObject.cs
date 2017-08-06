@@ -2,7 +2,7 @@
 
 namespace MinimalMVVM.ViewModel
 {
-    public class ObservableObject : INotifyPropertyChanged
+    public abstract class ObservableObject : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
