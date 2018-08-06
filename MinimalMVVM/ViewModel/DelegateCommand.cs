@@ -12,18 +12,10 @@ namespace MinimalMVVM.ViewModel
             _action = action;
         }
 
-        public void Execute(object parameter)
-        {
-            _action();
-        }
+        public void Execute(object parameter) => _action();
 
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
+        public bool CanExecute(object parameter) => true;
 
-#pragma warning disable 67
         public event EventHandler CanExecuteChanged { add { } remove { } }
-#pragma warning restore 67
     }
 }
