@@ -15,9 +15,18 @@
     
     <StackPanel Height="336">
         <Label Foreground="Blue" Margin="5,5,5,0">Text To Convert</Label>
+        
+        <!--TextBox data-bound to Presenter.SomeText, with UpdateSourceTrigger set to update the SomeText property
+        whenever the input property changes, not just when you unfocus the TextBox (that's the default in WPF)-->
         <TextBox Text="{Binding SomeText, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
         <Label Foreground="Blue" Margin="5,5,5,0">History</Label>
+        
+        <!--ListBox.ItemsSource is bound to the ObservableCollection Presenter.History-->
         <ListBox ItemsSource="{Binding History}" Height="200" Margin="5"/>
+        
+        <!--Button.Command is data-bound to Presenter.ConvertTextCommand, which is an instance of DelegateCommand.
+        For those not familiar with WPF Commands, this basically means Presenter.ConvertText() is run when Convert is clicked
+        (More detail in Presenter.cs and DelegateCommand.cs)-->
         <Button Command="{Binding ConvertTextCommand}" Margin="5">Convert</Button>
     </StackPanel>
     
