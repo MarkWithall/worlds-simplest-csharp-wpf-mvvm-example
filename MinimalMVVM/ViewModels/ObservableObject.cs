@@ -13,10 +13,10 @@ namespace MinimalMVVM.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         // A method that's inherited by any child of this class, which is fired (using get{} and set{}) whenever a property is changed in the child class
-        // This "raises the event", or runs all the functions "subscribed", e.g. all the functions listed in the PropertyChanged event handler
+        // This "raises the event", or runs all the functions "subscribed", i.e. all the functions listed in the PropertyChanged event handler
         protected void RaisePropertyChangedEvent(string propertyName)
         {
-            // Set handler to the PropertyChanged event
+            // Grab the PropertyChanged handler we define previously
             var handler = PropertyChanged;
             // Make sure the event is not empty
             // i.e. make sure the list of functions to run when this event fires is not empty (meaning no subscribers to the event)
