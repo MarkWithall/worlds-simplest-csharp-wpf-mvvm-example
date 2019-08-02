@@ -17,6 +17,8 @@ namespace MinimalMVVM.ViewModels
         protected void RaisePropertyChangedEvent(string propertyName)
         {
             // Grab the PropertyChanged handler we define previously
+            // This is done because PropertyChanged can become null if a subscriber unsubscribes after the null check but before the invocation.
+            // This way we still have a non-null copy, that won't cause problems, to work with.
             var handler = PropertyChanged;
             // Make sure the event is not empty
             // i.e. make sure the list of functions to run when this event fires is not empty (meaning no subscribers to the event)
