@@ -3,8 +3,13 @@ using System.ComponentModel;
 
 namespace MinimalMVVM.ViewModels
 {
-    // This implements the INotifyPropertyChanged interface in a simple way to make objects provide data-binding property change notifications
-    // To use, base a class on ObservableObject, then call RaisedPropertyChangedEvent("myPropertyName") in the set method for your property
+    /// <summary>
+    /// Implements INotifyPropertyChanged interface in a simple way to make objects provide 
+    /// data-binding property change notifications.
+    /// </summary>
+    /// <remarks>
+    /// To use, base a class on ObservableObject, then call RaisedPropertyChangedEvent("myPropertyName") in the set method for your property
+    /// </remarks>
     public abstract class ObservableObject : INotifyPropertyChanged
     {
         // Make an event handler using (pre-existing?) PropertyChangedEventHandler delegate.
@@ -27,7 +32,7 @@ namespace MinimalMVVM.ViewModels
                 handler.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
             // For the sake of clarity, I have added a simple Console log here so you can see when the event fires
-            Console.WriteLine("PropertyChange raised for the " + propertyName + " property of an instance of " + this);
+            Debug.WriteLine("PropertyChange raised for the " + propertyName + " property of an instance of " + this);
         }
     }
 }
