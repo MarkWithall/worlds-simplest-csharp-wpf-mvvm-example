@@ -1,4 +1,3 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -15,25 +14,24 @@ namespace MinimalMVVM.ViewModels
      *      - ConvertTextCommand.Execute() ends up pointing to Presenter.ConvertText()
      *          - When Presenter.ConvertText() is called, it shoves Presenter.SomeText through Presenter._textConverter.ConvertText(), which returns the converted all-caps string
      *          - Then Presenter.ConvertText() adds the converted string to Presenter._history, which is data bound (via the Presenter.History property) to the history ListBox in the XAML UI
-    */ 
-
-    // The contents of Presenter are best understood when read from top to bottom!
-    // It's easy to miss, but the actual instance of Presenter that we use is created in XAML, not code-behind, in ConvertWindow.xaml
-    public class Presenter : ObservableObject // Base on the ObservableObject class so simple properties will play nice with data binding (see ObservableObject.cs)
+     *
+     * The contents of Presenter are best understood when read from top to bottom.
+     * It's easy to miss, but the actual instance of Presenter that we use is created in XAML, not code-behind, in ConvertWindow.xaml
+    */
+    
+    /// <summary>
+    /// Viewmodel for our application, based on <see cref="ObservableObject"/> so simple properties will play nice with data binding.
+    /// </summary>
+    public class Presenter : ObservableObject
     {
         #region Private TextConverter Instance
         // Create an instance of TextConverter, using an anonymous method as a parameter to pass in the conversion function since it's so simple
-        private readonly TextConverter _textConverter = new TextConverter(
-            delegate(string s)
-            {
-                // Uncomment to see when this runs
-                //Console.WriteLine("Anonymous method within TextConverter instance ran!");
+        private readonly TextConverter _textConverter = new TextConverter(s => {
+            // Uncomment to see when this runs
+            //Debug.WriteLine("Anonymous method within TextConverter instance ran!");
 
-                return s.ToUpper();
-            }
-        );
-        // ^^^This could be made way shorter using lambda expressions as below, but for the sake of clarity I have included the more verbose, non-lambda way. Both ways give the same result.
-        // private readonly TextConverter _textConverter = new TextConverter(s => s.ToUpper());
+            return s.ToUpper();
+        });
         #endregion
 
         #region SomeText (User Input) Property
@@ -58,7 +56,7 @@ namespace MinimalMVVM.ViewModels
         #region History ObservableCollection
 
         // Create a backend ObservableCollection variable, which is basically a WPF Data-binding-friendly List
-        // ObservableCollections implement the INotifyPropertyChanged interface so they play nice with bindings
+        // ObservableCollections implement the INotifyPropertyChanged and INotifyCollectionChanged interfaces so they play nice with bindings
         private readonly ObservableCollection<string> _history = new ObservableCollection<string>();
 
         // This is basically a wrapper to prevent external entities from being able to write to _history
