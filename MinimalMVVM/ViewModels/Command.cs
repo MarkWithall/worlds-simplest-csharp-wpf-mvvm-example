@@ -3,11 +3,11 @@ using System.Windows.Input;
 
 namespace MinimalMVVM.ViewModels
 {
-    public class DelegateCommand : ICommand
+    public class Command : ICommand
     {
         private readonly Action<object> _action;
 
-        public DelegateCommand(Action<object> action)
+        public Command(Action<object> action)
         {
             _action = action;
         }

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="336"
              d:DesignWidth="300"
-             d:DataContext="{d:DesignInstance ViewModels:Presenter}">
+             d:DataContext="{d:DesignInstance ViewModels:ConverterPresenter}">
 
     <UserControl.InputBindings>
         <KeyBinding Key="Enter" Command="{Binding ConvertTextCommand}"/>

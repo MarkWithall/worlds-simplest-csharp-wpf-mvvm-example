@@ -1,39 +1,16 @@
-﻿using System.Collections.ObjectModel;
-using System.Windows.Input;
-using MinimalMVVM.Models;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace MinimalMVVM.ViewModels
 {
-    public class Presenter : ObservableObject
+    public abstract class Presenter : INotifyPropertyChanged
     {
-        private readonly TextConverter _textConverter = new TextConverter(s => s.ToUpper());
-        private string _someText = string.Empty;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
-        public string SomeText
+        protected void RaisePropertyChangedEvent([CallerMemberName] string? propertyName = null)
         {
-            get => _someText;
-            set
-            {
-                _someText = value;
-                RaisePropertyChangedEvent();
-            }
-        }
-
-        public ObservableCollection<string> History { get; } = new ObservableCollection<string>();
-
-        public ICommand ConvertTextCommand => new DelegateCommand(_ => ConvertText());
-
-        private void ConvertText()
-        {
-            if (string.IsNullOrWhiteSpace(SomeText)) return;
-            AddToHistory(_textConverter.ConvertText(SomeText));
-            SomeText = string.Empty;
-        }
-
-        private void AddToHistory(string item)
-        {
-            if (!History.Contains(item))
-                History.Add(item);
+            var handler = PropertyChanged;
+            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
