@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using MinimalMVVM.Models;
 
@@ -9,11 +8,10 @@ namespace MinimalMVVM.ViewModels
     {
         private readonly TextConverter _textConverter = new TextConverter(s => s.ToUpper());
         private string _someText = string.Empty;
-        private readonly ObservableCollection<string> _history = new ObservableCollection<string>();
 
         public string SomeText
         {
-            get { return _someText; }
+            get => _someText;
             set
             {
                 _someText = value;
@@ -21,15 +19,9 @@ namespace MinimalMVVM.ViewModels
             }
         }
 
-        public IEnumerable<string> History
-        {
-            get { return _history; }
-        }
+        public ObservableCollection<string> History { get; } = new ObservableCollection<string>();
 
-        public ICommand ConvertTextCommand
-        {
-            get { return new DelegateCommand(_ => ConvertText()); }
-        }
+        public ICommand ConvertTextCommand => new DelegateCommand(_ => ConvertText());
 
         private void ConvertText()
         {
@@ -40,8 +32,8 @@ namespace MinimalMVVM.ViewModels
 
         private void AddToHistory(string item)
         {
-            if (!_history.Contains(item))
-                _history.Add(item);
+            if (!History.Contains(item))
+                History.Add(item);
         }
     }
 }
