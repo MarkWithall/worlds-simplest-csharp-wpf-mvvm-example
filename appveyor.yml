@@ -3,3 +3,5 @@ build:
   verbosity: minimal
 image:
   - Visual Studio 2019
+before_build:
+  - nuget restore
