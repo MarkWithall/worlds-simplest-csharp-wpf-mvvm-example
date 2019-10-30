@@ -4,14 +4,13 @@
         xmlns:Views="clr-namespace:MinimalMVVM.Views"
         xmlns:ViewModels="clr-namespace:MinimalMVVM.ViewModels"
         Title="Converter"
-        MinWidth="300"
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight">
-    
+
     <Window.DataContext>
-        <ViewModels:Presenter/>
+        <ViewModels:ConverterPresenter />
     </Window.DataContext>
-    
-    <Views:ConverterControl/>
-    
+
+    <Views:ConverterControl />
+
 </Window>
