@@ -8,10 +8,10 @@ namespace MinimalMVVM.ViewModels
     public class Presenter : ObservableObject
     {
         private readonly TextConverter _textConverter = new TextConverter(s => s.ToUpper());
-        private string? _someText;
+        private string _someText = string.Empty;
         private readonly ObservableCollection<string> _history = new ObservableCollection<string>();
 
-        public string? SomeText
+        public string SomeText
         {
             get { return _someText; }
             set
