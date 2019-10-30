@@ -14,7 +14,8 @@
         </Style>
     </FrameworkElement.Resources>
 
-    <StackPanel>
+    <StackPanel FocusManager.FocusedElement="{Binding ElementName=TextToConvert}">
+
         <Label Content="Text To Convert"
                Target="{Binding ElementName=TextToConvert}" />
         <TextBox Name="TextToConvert"
@@ -33,6 +34,7 @@
                 Command="{Binding ConvertTextCommand}"
                 IsDefault="True"
                 Margin="5" />
+
     </StackPanel>
 
 </UserControl>
