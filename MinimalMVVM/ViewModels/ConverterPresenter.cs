@@ -21,6 +21,7 @@ namespace MinimalMVVM.ViewModels
         public ICommand ConvertTextCommand => new Command(_ =>
         {
             if (string.IsNullOrWhiteSpace(SomeText)) return;
+
             AddToHistory(_textConverter.ConvertText(SomeText));
             SomeText = string.Empty;
 
