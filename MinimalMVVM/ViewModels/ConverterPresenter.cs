@@ -12,11 +12,7 @@ namespace MinimalMVVM.ViewModels
         public string SomeText
         {
             get => _someText;
-            set
-            {
-                _someText = value;
-                RaisePropertyChangedEvent();
-            }
+            set => Update(ref _someText, value);
         }
 
         public ObservableCollection<string> History { get; } = new ObservableCollection<string>();
