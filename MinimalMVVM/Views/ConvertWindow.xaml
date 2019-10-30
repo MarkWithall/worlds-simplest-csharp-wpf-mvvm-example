@@ -7,11 +7,11 @@
         MinWidth="300"
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight">
-    
+
     <Window.DataContext>
-        <ViewModels:ConverterPresenter/>
+        <ViewModels:ConverterPresenter />
     </Window.DataContext>
-    
-    <Views:ConverterControl/>
-    
+
+    <Views:ConverterControl />
+
 </Window>
