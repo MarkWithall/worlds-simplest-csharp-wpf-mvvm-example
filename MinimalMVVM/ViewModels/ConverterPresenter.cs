@@ -17,14 +17,12 @@ namespace MinimalMVVM.ViewModels
 
         public ObservableCollection<string> History { get; } = new ObservableCollection<string>();
 
-        public ICommand ConvertTextCommand => new Command(_ => ConvertText());
-
-        private void ConvertText()
+        public ICommand ConvertTextCommand => new Command(_ =>
         {
             if (string.IsNullOrWhiteSpace(SomeText)) return;
             AddToHistory(_textConverter.ConvertText(SomeText));
             SomeText = string.Empty;
-        }
+        });
 
         private void AddToHistory(string item)
         {
