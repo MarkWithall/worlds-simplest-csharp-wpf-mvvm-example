@@ -5,20 +5,33 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:ViewModels="clr-namespace:MinimalMVVM.ViewModels"
              mc:Ignorable="d"
-             d:DesignHeight="336"
-             d:DesignWidth="300"
              d:DataContext="{d:DesignInstance ViewModels:ConverterPresenter}">
 
-    <UserControl.InputBindings>
-        <KeyBinding Key="Enter" Command="{Binding ConvertTextCommand}" />
-    </UserControl.InputBindings>
+    <StackPanel>
+        <Label Content="Text To Convert"
+               Target="{Binding ElementName=TextToConvert}"
+               Foreground="Blue"
+               Margin="5,5,5,0" />
 
-    <StackPanel Height="336">
-        <Label Foreground="Blue" Margin="5,5,5,0">Text To Convert</Label>
-        <TextBox Text="{Binding SomeText, UpdateSourceTrigger=PropertyChanged}" Margin="5" />
-        <Label Foreground="Blue" Margin="5,5,5,0">History</Label>
-        <ListBox ItemsSource="{Binding History}" Height="200" Margin="5" />
-        <Button Command="{Binding ConvertTextCommand}" Margin="5">Convert</Button>
+        <TextBox Name="TextToConvert"
+                 Text="{Binding SomeText, UpdateSourceTrigger=PropertyChanged}"
+                 Margin="5" />
+
+        <Label Content="History"
+               Target="{Binding ElementName=History}"
+               Foreground="Blue"
+               Margin="5,5,5,0" />
+
+        <ListBox Name="History"
+                 ItemsSource="{Binding History}"
+                 MinWidth="300"
+                 Height="200"
+                 Margin="5" />
+
+        <Button Content="Convert"
+                Command="{Binding ConvertTextCommand}"
+                IsDefault="True"
+                Margin="5" />
     </StackPanel>
 
 </UserControl>
