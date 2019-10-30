@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace MinimalMVVM.ViewModels
+namespace MinimalMVVM.ViewModels.MVVM
 {
     public abstract class Presenter : INotifyPropertyChanged
     {

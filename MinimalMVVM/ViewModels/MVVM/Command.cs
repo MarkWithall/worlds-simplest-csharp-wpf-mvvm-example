@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace MinimalMVVM.ViewModels
+namespace MinimalMVVM.ViewModels.MVVM
 {
     public class Command : ICommand
     {

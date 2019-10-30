@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
 using MinimalMVVM.Models;
+using MinimalMVVM.ViewModels.MVVM;
 
 namespace MinimalMVVM.ViewModels
 {
