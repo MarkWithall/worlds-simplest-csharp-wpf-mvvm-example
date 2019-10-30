@@ -23,12 +23,12 @@ namespace MinimalMVVM.ViewModels
             if (string.IsNullOrWhiteSpace(SomeText)) return;
             AddToHistory(_textConverter.ConvertText(SomeText));
             SomeText = string.Empty;
-        });
 
-        private void AddToHistory(string item)
-        {
-            if (!History.Contains(item))
-                History.Add(item);
-        }
+            void AddToHistory(string item)
+            {
+                if (!History.Contains(item))
+                    History.Add(item);
+            }
+        });
     }
 }
