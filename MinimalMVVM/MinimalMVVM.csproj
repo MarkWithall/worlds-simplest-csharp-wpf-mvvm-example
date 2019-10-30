@@ -12,6 +12,7 @@
     <TargetFrameworks>netcoreapp3.0</TargetFrameworks>
     <UseWPF>True</UseWPF>
     <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <WarningsAsErrors />
   </PropertyGroup>
