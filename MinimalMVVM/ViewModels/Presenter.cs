@@ -17,7 +17,7 @@ namespace MinimalMVVM.ViewModels
             set
             {
                 _someText = value;
-                RaisePropertyChangedEvent("SomeText");
+                RaisePropertyChangedEvent();
             }
         }
 
@@ -28,7 +28,7 @@ namespace MinimalMVVM.ViewModels
 
         public ICommand ConvertTextCommand
         {
-            get { return new DelegateCommand(ConvertText); }
+            get { return new DelegateCommand(_ => ConvertText()); }
         }
 
         private void ConvertText()

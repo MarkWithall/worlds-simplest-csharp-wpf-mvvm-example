@@ -5,25 +5,21 @@ namespace MinimalMVVM.ViewModels
 {
     public class DelegateCommand : ICommand
     {
-        private readonly Action _action;
+        private readonly Action<object> _action;
 
-        public DelegateCommand(Action action)
+        public DelegateCommand(Action<object> action)
         {
             _action = action;
         }
 
-        public void Execute(object parameter)
-        {
-            _action();
-        }
+        public void Execute(object parameter) => _action(parameter);
 
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
+        public bool CanExecute(object parameter) => true;
 
-#pragma warning disable 67
-        public event EventHandler CanExecuteChanged { add { } remove { } }
-#pragma warning restore 67
+        public event EventHandler CanExecuteChanged
+        {
+            add { }
+            remove { }
+        }
     }
 }
