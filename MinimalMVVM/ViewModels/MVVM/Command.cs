@@ -3,14 +3,11 @@ using System.Windows.Input;
 
 namespace MinimalMVVM.ViewModels.MVVM
 {
-    public class Command : ICommand
+    internal sealed class Command : ICommand
     {
         private readonly Action<object> _action;
 
-        public Command(Action<object> action)
-        {
-            _action = action;
-        }
+        public Command(Action<object> action) => _action = action;
 
         public void Execute(object parameter) => _action(parameter);
 

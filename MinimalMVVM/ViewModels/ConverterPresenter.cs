@@ -5,10 +5,12 @@ using MinimalMVVM.ViewModels.MVVM;
 
 namespace MinimalMVVM.ViewModels
 {
-    public class ConverterPresenter : Presenter
+    internal sealed class ConverterPresenter : Presenter
     {
-        private readonly TextConverter _textConverter = new TextConverter(s => s.ToUpper());
+        private readonly ConverterModel _model;
         private string _someText = string.Empty;
+
+        public ConverterPresenter(ConverterModel model, ObservableCollection<string> history) => (_model, History) = (model, history);
 
         public string SomeText
         {
@@ -16,20 +18,10 @@ namespace MinimalMVVM.ViewModels
             set => Update(ref _someText, value);
         }
 
-        public ObservableCollection<string> History { get; } = new ObservableCollection<string>();
+        public ObservableCollection<string> History { get; }
 
-        public ICommand ConvertTextCommand => new Command(_ =>
-        {
-            if (string.IsNullOrWhiteSpace(SomeText)) return;
+        public ICommand ConvertTextCommand => new Command(_ => _model.ConvertText(SomeText, OnUpdate));
 
-            AddToHistory(_textConverter.ConvertText(SomeText));
-            SomeText = string.Empty;
-
-            void AddToHistory(string item)
-            {
-                if (!History.Contains(item))
-                    History.Add(item);
-            }
-        });
+        private void OnUpdate() => SomeText = string.Empty;
     }
 }

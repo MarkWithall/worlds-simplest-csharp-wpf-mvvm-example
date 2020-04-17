@@ -1,6 +1,6 @@
 ﻿namespace MinimalMVVM.Views
 {
-    public partial class ConverterControl
+    internal sealed partial class ConverterControl
     {
         public ConverterControl()
         {

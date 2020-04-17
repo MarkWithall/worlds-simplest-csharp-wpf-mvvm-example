@@ -1,6 +1,6 @@
 namespace MinimalMVVM.Views
 {
-    public partial class ConvertWindow
+    internal sealed partial class ConvertWindow
     {
         public ConvertWindow()
         {

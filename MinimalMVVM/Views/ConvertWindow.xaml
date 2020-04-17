@@ -1,16 +1,16 @@
 <Window x:Class="MinimalMVVM.Views.ConvertWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Views="clr-namespace:MinimalMVVM.Views"
-        xmlns:ViewModels="clr-namespace:MinimalMVVM.ViewModels"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        xmlns:views="clr-namespace:MinimalMVVM.Views"
+        xmlns:viewModels="clr-namespace:MinimalMVVM.ViewModels"
         Title="Converter"
         ResizeMode="NoResize"
-        SizeToContent="WidthAndHeight">
+        SizeToContent="WidthAndHeight" x:ClassModifier="internal"
+        d:DataContext="{d:DesignInstance viewModels:ConverterPresenter}">
 
-    <Window.DataContext>
-        <ViewModels:ConverterPresenter />
-    </Window.DataContext>
-
-    <Views:ConverterControl />
+    <views:ConverterControl />
 
 </Window>
