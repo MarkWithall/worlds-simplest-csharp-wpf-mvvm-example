@@ -5,7 +5,7 @@ using System.Diagnostics;
 namespace MinimalMVVM.ViewModels
 {
     /// <summary>
-    /// Implements INotifyPropertyChanged interface in a simple way to make objects provide 
+    /// Implements INotifyPropertyChanged interface in a simple way to make objects provide
     /// data-binding property change notifications.
     /// </summary>
     /// <remarks>
