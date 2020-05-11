@@ -17,8 +17,7 @@ namespace MinimalMVVM.ViewModels
      *
      * The contents of Presenter are best understood when read from top to bottom.
      * It's easy to miss, but the actual instance of Presenter that we use is created in XAML, not code-behind, in ConvertWindow.xaml
-    */
-    
+     */
     /// <summary>
     /// Viewmodel for our application, based on <see cref="ObservableObject"/> so simple properties will play nice with data binding.
     /// </summary>
