@@ -10,7 +10,8 @@ namespace MinimalMVVM.ViewModels
         private readonly ConverterModel _model;
         private string _someText = string.Empty;
 
-        public ConverterPresenter(ConverterModel model, ObservableCollection<string> history) => (_model, History) = (model, history);
+        public ConverterPresenter(ConverterModel model, ObservableCollection<string> history) =>
+            (_model, History) = (model, history);
 
         public string SomeText
         {
