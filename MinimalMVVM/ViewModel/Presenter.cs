@@ -9,7 +9,7 @@ namespace MinimalMVVM.ViewModel
     {
         private readonly TextConverter _textConverter = new TextConverter(s => s.ToUpper());
         private string _someText;
-        private readonly ObservableCollection<string> _history = new ObservableCollection<string>();
+        public ObservableCollection<string> History { get; } = new ObservableCollection<string>();
 
         public string SomeText
         {
@@ -21,8 +21,6 @@ namespace MinimalMVVM.ViewModel
             }
         }
 
-        public IEnumerable<string> History => _history;
-
         public ICommand ConvertTextCommand => new DelegateCommand(() =>
         {
             if (string.IsNullOrWhiteSpace(SomeText)) return;
@@ -32,8 +30,8 @@ namespace MinimalMVVM.ViewModel
 
         private void AddToHistory(string item)
         {
-            if (!_history.Contains(item))
-                _history.Add(item);
+            if (!History.Contains(item))
+                History.Add(item);
         }
     }
 }
